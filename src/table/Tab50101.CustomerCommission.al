@@ -65,12 +65,11 @@ table 50101 CustomerCommission
     var
         myInt: Integer;
         noseries: Codeunit NoSeriesManagement;
-        ReceSetup: Record "Purchases & Payables Setup";
+        SalesSetup: Record "Sales & Receivables Setup";
     begin
         IF No <> ' ' then begin
-            ReceSetup.Get();
-            noseries.InitSeries('COM', xRec."No.Series", 0D, No, "No.Series");
-
+            SalesSetup.Get();
+            noseries.InitSeries(SalesSetup."Customer Commission", xRec."No.Series", 0D, No, "No.Series");
         end;
 
     end;
